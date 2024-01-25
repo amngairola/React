@@ -34,7 +34,7 @@ function TodoItem({ todo }) {
         } ${todo.completed ? "line-through" : ""}`}
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
-        readOnly={!isTodoEditable}
+        readOnly={!isTodoEditable} 
       />
       {/* Edit, Save Button */}
       <button

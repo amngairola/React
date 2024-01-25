@@ -5,13 +5,10 @@ function TodoForm() {
   const [todo, setTodo] = useState("");
 
   const { addTodo } = useTodo();
-  // in the above line what we are doing is we are extracting the addTodo functionality from the useTodo hook , which is returning the Context
-
-  //adding todo
-  const add = (e) => {
+  const add = () => {
     e.preventDefault();
     if (!todo) return;
-    addTodo({ todo, completed: false }); //if you have an object with a key-value pair like {todo: todo}, you can shorthand it to just {todo}.
+    addTodo({ todo, completed: false });
 
     setTodo("");
   };
@@ -26,7 +23,7 @@ function TodoForm() {
         onChange={(e) => setTodo(e.target.value)}
       />
       <button
-        type="submit" //beacuse of type submite we do not have to add functionality to the button we can directly to that in a form tag
+        type="submit"
         className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0"
       >
         Add
