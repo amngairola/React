@@ -28,7 +28,7 @@ export class AuthService {
         return userAccount;
       }
     } catch (err) {
-      throw error;
+      console.log("Appwrite error:: create Acount error", error);
     }
   }
 
@@ -37,6 +37,23 @@ export class AuthService {
       return await this.acount.createEmailSession(email, password);
     } catch (error) {
       throw error;
+    }
+  }
+
+  async getCurrentUser() {
+    try {
+      return await this.acount.get();
+    } catch (error) {
+      console.log("Appwrite error:: login Acount error", error);
+    }
+    return null;
+  }
+
+  async logOut() {
+    try {
+      await this.Account.deleteSessions();
+    } catch (error) {
+      console.log("Appwrite error:: logout Acount error", error);
     }
   }
 }
