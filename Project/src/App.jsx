@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import authService from "./appwrite/auth";
-import { logIn, logOut } from "./Store/AuthSlice";
+import { logIn, logout } from "./Store/AuthSlice";
 import { Footer, Header } from "./Components/Index";
 import { Outlet } from "react-router-dom";
 
@@ -17,7 +17,7 @@ function App() {
         if (userData) {
           dispatch(logIn({ userData }));
         } else {
-          dispatch(logOut());
+          dispatch(logout());
         }
       })
       .catch((err) => {
